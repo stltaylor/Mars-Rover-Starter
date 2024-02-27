@@ -4,7 +4,7 @@ class Message {
       if (!name) {
          throw Error('Name required');
       }
-      this.commands = commands
+      this.commands = commands || []
    }
 }
 // let commands = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('STATUS_CHECK')]
