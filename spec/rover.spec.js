@@ -34,7 +34,7 @@ describe("Rover class", function() {
     ];
     let message = new Message('My spoon is too big', commands);
     let test = rover.receiveMessage(message);
-    expect(test.result.length).toBe(2);
+    expect(test.results.length).toBe(2);
   });
   
   // test 10
@@ -43,9 +43,9 @@ describe("Rover class", function() {
     let command = [new Command('STATUS_CHECK')];
     let message = new Message('My spoon is too big', command);
     let test = rover.receiveMessage(message);
-    expect(test.result[0].roverStatus.mode).toBe('NORMAL');
-    expect(test.result[0].roverStatus.generatorWatts).toBe(110);
-    expect(test.result[0].roverStatus.position).toBe(100513);
+    expect(test.results[0].roverStatus.mode).toBe('NORMAL');
+    expect(test.results[0].roverStatus.generatorWatts).toBe(110);
+    expect(test.results[0].roverStatus.position).toBe(100513);
   });
 
   // test 11
@@ -54,7 +54,7 @@ describe("Rover class", function() {
     let commands = [new Command('MODE_CHANGE', 'LOW_POWER')];
     let message = new Message('My spoon is too big', commands);
     let test = rover.receiveMessage(message);
-    expect(test.result[0].completed).toBe(true);
+    expect(test.results[0].completed).toBe(true);
     expect(rover.mode).toBe('LOW_POWER');
   });
 
@@ -69,7 +69,7 @@ describe("Rover class", function() {
     // rover.receiveMessage(message1)
       
     
-    expect(test.result[1].completed).toBe(false);
+    expect(test.results[1].completed).toBe(false);
     expect(rover.position).toBe(100513)
   });
 
@@ -79,7 +79,7 @@ describe("Rover class", function() {
     let commands = [new Command('MOVE', 262626)];
     let message = new Message("I'm a banana", commands);
     let test = rover.receiveMessage(message);
-    expect(test.result[0].completed).toBe(true);
+    expect(test.results[0].completed).toBe(true);
     expect(rover.position).toBe(262626)
   })
   
