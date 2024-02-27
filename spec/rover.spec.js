@@ -8,7 +8,7 @@ const Command = require('../command.js');
 
 describe("Rover class", function() {
   
-  
+  // Test 7
   it('constructor sets position and default values for mode and generatorWatts', function(){
    let test = new Rover(100513);
     expect(test.position).toBe(100513);
@@ -16,7 +16,7 @@ describe("Rover class", function() {
     expect(test.generatorWatts).toBe(110);
     })
   
-  
+  // Test 8 
   it('response returned by receiveMessage contains the name of the message', function(){
     let rover = new Rover(100513);
     let message = new Message('My spoon is too big');
@@ -25,7 +25,7 @@ describe("Rover class", function() {
 
   });
   
-  
+  // Test 9
   it('response returned by receiveMessage includes two results if two commands are sent in the message', function(){
     let rover = new Rover(100513);
     let commands = [
@@ -37,7 +37,7 @@ describe("Rover class", function() {
     expect(test.result.length).toBe(2);
   });
   
-  
+  // test 10
   it('responds correctly to the status check command', function() {
     let rover = new Rover(100513);
     let command = [new Command('STATUS_CHECK')];
@@ -48,7 +48,7 @@ describe("Rover class", function() {
     expect(test.result[0].roverStatus.position).toBe(100513);
   });
 
-
+  // test 11
   it('responds correctly to the mode change command', function() {
     let rover = new Rover(100513);
     let commands = [new Command('MODE_CHANGE', 'LOW_POWER')];
@@ -58,7 +58,7 @@ describe("Rover class", function() {
     expect(rover.mode).toBe('LOW_POWER');
   });
 
-
+  // test 12
   it('responds with a false completed value when attempting to move in LOW_POWER mode', function(){
     let rover = new Rover(100513);
     let commands = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('MOVE', 262626)];
@@ -73,7 +73,7 @@ describe("Rover class", function() {
     expect(rover.position).toBe(100513)
   });
 
-
+  // test 13
   it('responds with the position for the move command', function() {
     let rover = new Rover(100513);
     let commands = [new Command('MOVE', 262626)];
