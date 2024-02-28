@@ -19,7 +19,7 @@ describe("Rover class", function() {
   // Test 8 
   it('response returned by receiveMessage contains the name of the message', function(){
     let rover = new Rover(100513);
-    let message = new Message('My spoon is too big');
+    let message = new Message('My spoon is too big', []);
     let test = rover.receiveMessage(message);
     expect(test.message).toBe('My spoon is too big');
 
